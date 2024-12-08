@@ -3,7 +3,7 @@
 import stripe
 import mysql.connector
 
-# Set your Stripe secret key
+y
 stripe.api_key = "sk_test_51QRVPRFNk3oYkWkNiZxiuYeeSRPAi0Rk2EoNzRNw6oztl03us0dlu04cktIuwCbvPgdAVyhNeBouVvLH421H1ZIg00yiY35uGX"  # Replace with your Stripe test key
 
 # Database connection setup
