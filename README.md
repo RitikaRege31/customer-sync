@@ -34,24 +34,16 @@ This project is a customer management system that integrates with the Stripe API
    git clone <repository_url>
    cd <repository_folder>
 
-
 2. Install the required Python packages:
-   ```bash
+   ```bash 
    pip install -r requirements.txt
-
-
 
 3. Configure MySQL
    Open the MySQL CLI or your preferred database management tool.
    Create the database:
    ```bash
    CREATE DATABASE customer_sync;
- Modify the MySQL connection settings in api/app.py and db/db_config.py as necessary:
-   ```bash
-   host="localhost"
-   user="your_mysql_user"
-   password="your_mysql_password"
-
+  
 4. Run Database Initialization
    Execute the database creation script:
    ```bash
@@ -63,7 +55,6 @@ This project is a customer management system that integrates with the Stripe API
    ```python
    stripe.api_key = "your_stripe_secret_key"
    STRIPE_WEBHOOK_SECRET = "your_stripe_webhook_secret"
-
 
 6. Start the Flask Application
    Run the API:
@@ -77,39 +68,81 @@ This project is a customer management system that integrates with the Stripe API
    stripe listen --forward-to localhost:5001/webhook
  Update the webhook endpoint in Stripe's dashboard to match your live deployment URL.
 
-API Endpoints
+# API Endpoints
+
 1. Add Customer
-URL: /customers
-Method: POST
-Body:
-{
-  "name": "Customer Name",
-  "email": "customer@example.com"
-}
-Response:
-{
-  "message": "Customer added successfully"
-}
+   URL: /customers
+   Method: POST
+   Body:
+    ```bash
+    {
+      "name": "Customer Name",
+      "email": "customer@example.com"
+    }
+
+   Response:
+   ```bash
+   {
+      "message": "Customer added successfully"
+   }
 
 2. Retrieve Customers
-URL: /customers
-Method: GET
-Response:
-[
-  {
-    "id": 1,
-    "name": "Customer Name",
-    "email": "customer@example.com"
-  }
-]
+   URL: /customers
+   Method: GET
+   Response:
+   ```bash
+    [
+      {
+        "id": 1,
+        "name": "Customer Name",
+        "email": "customer@example.com"
+      }
+    ]
 
 3. Stripe Webhook
-URL: /webhook
-Method: POST
-Body: Stripe webhook payload
+   URL: /webhook
+   Method: POST
+   Body: Stripe webhook payload
 
-Deployment Instructions
-Local Deployment
-Follow the installation steps to run the app locally.
-Use a tool like Postman to interact with the API.
+## Deployment Instructions
 
+# Local Deployment
+
+  1. Follow the installation steps to run the app locally.
+  2. Use a tool like Postman to interact with the API.
+
+# Production Deployment
+
+  1. Choose a Deployment Platform
+      AWS
+      Heroku
+      Google Cloud
+      Azure
+  2. Update Configuration for Production
+      Set DEBUG = False in api/config.py.
+      Use environment variables to manage sensitive data (e.g., database credentials and API keys).
+  3. Deploy the Application
+     1. Install Gunicorn:
+         ```bash
+         pip install gunicorn
+     2. Run the app using Gunicorn:
+         ```bash
+         gunicorn -w 4 -b 0.0.0.0:5001 api.app:app
+  4. Configure Web Server (Optional)
+      Use Nginx or Apache to reverse proxy requests to Gunicorn.
+  5. Secure Your Application
+      Enable HTTPS using an SSL certificate.
+
+# Dependencies
+  Flask
+  mysql-connector-python
+  stripe
+  pika
+
+# License
+  This project is licensed under the MIT License.
+
+# Acknowledgments
+  Stripe API Documentation
+  Flask Documentation
+  MySQL Documentation
