@@ -1,4 +1,4 @@
-# customer-sync
+
  
 # Customer Sync Application
 
@@ -14,19 +14,6 @@ This project is a customer management system that integrates with the Stripe API
 
 ---
 
-## Project Structure
-project/
-├── api/
-│   ├── app.py          # Main API application
-│   ├── config.py       # Configuration settings
-├── db/
-│   ├── create_db.py    # Script to create database and tables
-│   ├── db_config.py    # MySQL connection helper
-├── integrations/
-│   ├── stripe_sync.py  # Stripe sync logic
-│   ├── stripe_webhook.py # Webhook handler
-├── requirements.txt    # Python dependencies
-├── README.md           # Documentation
 
 
 
@@ -48,13 +35,16 @@ project/
    cd <repository_folder>
 
 
-Install the required Python packages:
+2. Install the required Python packages:
+```bash
 pip install -r requirements.txt
+
 
 
 3. Configure MySQL
 Open the MySQL CLI or your preferred database management tool.
 Create the database:
+```bash
 CREATE DATABASE customer_sync;
 Modify the MySQL connection settings in api/app.py and db/db_config.py as necessary:
 host="localhost"
