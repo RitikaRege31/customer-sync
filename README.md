@@ -146,3 +146,6 @@ This project is a customer management system that integrates with the Stripe API
   Stripe API Documentation
   Flask Documentation
   MySQL Documentation
+
+# Contribution
+  Ritika Rege
