@@ -4,6 +4,8 @@
 
 This project is a customer management system that integrates with the Stripe API for handling customer data. It includes features to create, retrieve, and synchronize customer data between a MySQL database and Stripe.
 
+# [Link to Demo working of the two way customer sync](https://drive.google.com/file/d/1vHU6VqGuk-_laIKug8E5hyL-VYLI2GPZ/view?usp=sharing)
+
 ## Features
 
 - Add new customers to a MySQL database and synchronize with Stripe.
